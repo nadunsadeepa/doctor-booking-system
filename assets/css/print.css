@@ -1,0 +1,109 @@
+/* =============================================================
+   assets/css/print.css
+   Used by patient/appointment_slip.php and patient/history_print.php.
+   Patients click "Print / Download" which opens window.print() --
+   choosing "Save as PDF" in the print dialog gives them a PDF
+   with zero server-side PDF library needed.
+   ============================================================= */
+
+body.print-page {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #1B2B2A;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #1F6F6B;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.print-header h1 {
+    font-size: 1.4rem;
+    color: #144C49;
+    margin: 0;
+}
+
+.print-header .meta {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #64807D;
+}
+
+.print-toolbar {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.print-toolbar button {
+    background: #1F6F6B;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.slip-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.slip-table th {
+    text-align: left;
+    width: 35%;
+    padding: 10px 8px;
+    color: #64807D;
+    font-weight: 600;
+    border-bottom: 1px solid #E1EBEA;
+    vertical-align: top;
+}
+
+.slip-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #E1EBEA;
+}
+
+.print-list {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.print-list th, .print-list td {
+    padding: 8px;
+    border-bottom: 1px solid #E1EBEA;
+    text-align: left;
+}
+
+.print-list th {
+    background: #EAF3F2;
+    color: #144C49;
+}
+
+.print-note {
+    margin-top: 24px;
+    font-size: 0.82rem;
+    color: #64807D;
+    border-top: 1px dashed #ccc;
+    padding-top: 12px;
+}
+
+.queue-highlight {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #144C49;
+}
+
+@media print {
+    .print-toolbar { display: none; }
+    body.print-page { padding: 0; max-width: 100%; }
+}

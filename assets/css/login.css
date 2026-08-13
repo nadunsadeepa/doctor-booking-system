@@ -1,0 +1,384 @@
+/* ======================================================
+   LOGIN — Shared styles for Admin, Doctor, Patient
+   Dark mode supported.
+   ====================================================== */
+
+/* ---------- CSS Variables (Light & Dark) ---------- */
+:root {
+    --bg-body: #f6fbfa;
+    --bg-shell: #ffffff;
+    --shell-shadow: 0 20px 60px rgba(20, 76, 73, 0.15);
+    --text-primary: #0b3d3a;
+    --text-secondary: #5e7a77;
+    --text-muted: #6c8a86;
+    --border-color: #e3edeb;
+    --input-bg: #f9fcfb;
+    --input-focus-shadow: 0 0 0 4px rgba(42, 157, 143, 0.15);
+    --error-bg: #fde8e8;
+    --error-color: #a12b36;
+    --btn-clinic-bg: linear-gradient(135deg, #1a6b64, #2a9d8f);
+    --btn-clinic-shadow: 0 6px 18px rgba(42, 157, 143, 0.25);
+    --btn-clinic-hover: linear-gradient(135deg, #0f5a53, #21867a);
+    --toggle-bg: #2a9d8f;
+    --toggle-icon: #fff;
+    --hero-bg: linear-gradient(145deg, #0b3d3a 0%, #1a6b64 40%, #2a9d8f 70%, #4ecdc4 100%);
+    --hero-text: #fff;
+    --hero-shape-opacity: 0.12;
+}
+
+body.dark-mode {
+    --bg-body: #121e1c;
+    --bg-shell: #1e2e2b;
+    --shell-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    --text-primary: #d4ece8;
+    --text-secondary: #a0c2bc;
+    --text-muted: #8aa9a3;
+    --border-color: #2a403c;
+    --input-bg: #1a2a27;
+    --input-focus-shadow: 0 0 0 4px rgba(42, 157, 143, 0.3);
+    --error-bg: #2a1a1a;
+    --error-color: #e8a0a0;
+    --btn-clinic-bg: linear-gradient(135deg, #2a9d8f, #4ecdc4);
+    --btn-clinic-shadow: 0 6px 18px rgba(42, 157, 143, 0.4);
+    --btn-clinic-hover: linear-gradient(135deg, #1a6b64, #3ab0a0);
+    --toggle-bg: #f4a261;
+    --toggle-icon: #0b3d3a;
+    --hero-bg: linear-gradient(145deg, #082a27 0%, #0f4a44 40%, #1a6b64 70%, #2a9d8f 100%);
+    --hero-text: #e6f7f5;
+    --hero-shape-opacity: 0.08;
+}
+
+/* ---------- Global ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.4s ease;
+    padding: 20px;
+}
+
+/* ---------- Dark Mode Toggle ---------- */
+.dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: var(--toggle-bg);
+    color: var(--toggle-icon);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.dark-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- Login Shell ---------- */
+.login-shell {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    min-height: 600px;
+    background: var(--bg-shell);
+    border-radius: 28px;
+    box-shadow: var(--shell-shadow);
+    overflow: hidden;
+    transition: background 0.4s, box-shadow 0.4s;
+    margin: 0 10px;
+}
+
+/* ---------- Left Panel (Hero) ---------- */
+.login-side {
+    flex: 1 1 45%;
+    background: var(--hero-bg);
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--hero-text);
+    transition: background 0.4s;
+}
+
+.login-side .role-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+    padding: 6px 20px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 24px;
+    align-self: flex-start;
+}
+
+.login-side h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.login-side p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 360px;
+    line-height: 1.6;
+}
+
+/* Floating shapes (decorative) */
+.login-side .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: var(--hero-shape-opacity);
+    pointer-events: none;
+    animation: floatShape 16s infinite alternate ease-in-out;
+}
+
+.login-side .shape-1 {
+    width: 220px;
+    height: 220px;
+    background: #f4a261;
+    top: -60px;
+    right: -50px;
+    animation-duration: 18s;
+}
+.login-side .shape-2 {
+    width: 150px;
+    height: 150px;
+    background: #e9c46a;
+    bottom: -40px;
+    left: -30px;
+    animation-duration: 14s;
+    animation-delay: 0.6s;
+}
+.login-side .shape-3 {
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    top: 30px;
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+@keyframes floatShape {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    100% {
+        transform: translate(30px, -25px) scale(1.1) rotate(12deg);
+    }
+}
+
+/* ---------- Right Panel (Form) ---------- */
+.login-form-area {
+    flex: 1 1 55%;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-shell);
+    transition: background 0.4s;
+}
+
+.login-form-area h2 {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+    transition: color 0.4s;
+}
+
+.login-form-area .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+    transition: color 0.4s;
+}
+
+/* Error alert */
+.alert-clinic-error {
+    background: var(--error-bg);
+    border-left: 4px solid #dc3545;
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Form fields */
+.form-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    transition: color 0.4s;
+}
+
+.form-control {
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.4s, color 0.4s;
+}
+
+.form-control:focus {
+    border-color: #2a9d8f;
+    box-shadow: var(--input-focus-shadow);
+    background: var(--bg-shell);
+}
+
+.input-group .btn-outline-secondary {
+    border: 1.5px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    background: var(--input-bg);
+    color: var(--text-secondary);
+    transition: background 0.3s, color 0.3s;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background: var(--bg-body);
+    border-color: var(--border-color);
+}
+
+/* Submit button */
+.btn-clinic {
+    background: var(--btn-clinic-bg);
+    border: none;
+    border-radius: 40px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+    box-shadow: var(--btn-clinic-shadow);
+    width: 100%;
+}
+
+.btn-clinic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(42, 157, 143, 0.35);
+    background: var(--btn-clinic-hover);
+    color: #fff;
+}
+
+.btn-clinic:active {
+    transform: scale(0.98);
+}
+
+/* Role switch links */
+.role-switch {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: color 0.4s;
+}
+
+.role-switch a {
+    color: #2a9d8f;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 4px;
+    transition: color 0.2s;
+}
+
+.role-switch a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.role-switch .sep {
+    color: var(--border-color);
+    margin: 0 6px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .login-shell {
+        flex-direction: column;
+        border-radius: 20px;
+        min-height: auto;
+    }
+    .login-side {
+        padding: 30px 24px;
+        flex: none;
+    }
+    .login-side h1 {
+        font-size: 2rem;
+    }
+    .login-side p {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    .login-form-area {
+        padding: 30px 24px;
+        flex: none;
+    }
+    .login-side .shape-1 {
+        width: 140px;
+        height: 140px;
+        top: -30px;
+        right: -20px;
+    }
+    .login-side .shape-2 {
+        width: 100px;
+        height: 100px;
+        bottom: -20px;
+        left: -10px;
+    }
+    .login-side .shape-3 {
+        display: none;
+    }
+    .dark-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-side h1 {
+        font-size: 1.6rem;
+    }
+    .role-tag {
+        font-size: 0.65rem;
+        padding: 4px 14px;
+    }
+}

@@ -1,0 +1,171 @@
+/* =============================================================
+   assets/css/admin.css
+   Shared layout for every admin panel page (sidebar + topbar).
+   ============================================================= */
+
+:root {
+    --admin-teal:      #1F6F6B;
+    --admin-teal-dark: #144C49;
+    --admin-bg:        #F4F8F7;
+    --admin-ink:       #1B2B2A;
+    --admin-muted:     #64807D;
+    --admin-border:    #E1EBEA;
+}
+
+body.admin-body {
+    background: var(--admin-bg);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--admin-ink);
+    margin: 0;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.admin-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, var(--admin-teal-dark) 0%, var(--admin-teal) 100%);
+    color: #fff;
+    padding: 24px 0;
+}
+
+.admin-sidebar .brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 12px;
+}
+
+.admin-sidebar a {
+    display: block;
+    padding: 11px 24px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-left: 3px solid transparent;
+}
+
+.admin-sidebar a:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+.admin-sidebar a.active {
+    background: rgba(255,255,255,0.12);
+    border-left-color: #fff;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ---------- Main area ---------- */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.admin-topbar {
+    background: #fff;
+    border-bottom: 1px solid var(--admin-border);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-topbar h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-topbar .admin-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.admin-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--admin-teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.admin-content {
+    padding: 28px;
+}
+
+/* ---------- Stat cards ---------- */
+.stat-card {
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    height: 100%;
+}
+
+.stat-card .stat-number {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--admin-teal-dark);
+    line-height: 1;
+}
+
+.stat-card .stat-label {
+    color: var(--admin-muted);
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+/* ---------- Panel / table ---------- */
+.admin-panel {
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 14px;
+    padding: 20px 22px;
+}
+
+.admin-panel h5 {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.admin-table {
+    width: 100%;
+    font-size: 0.88rem;
+}
+
+.admin-table th {
+    color: var(--admin-muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table td {
+    padding: 9px 6px;
+    border-bottom: 1px solid #F0F4F3;
+}
+
+.badge-success-soft { background: #EAF6EF; color: #227044; padding: 3px 9px; border-radius: 20px; font-size: 0.78rem; }
+.badge-danger-soft  { background: #FBEAE8; color: #C4453B; padding: 3px 9px; border-radius: 20px; font-size: 0.78rem; }
+
+@media (max-width: 767px) {
+    .admin-sidebar { display: none; }
+}

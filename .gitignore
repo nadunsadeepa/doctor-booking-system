@@ -1,0 +1,21 @@
+# Environment / secrets
+.env
+.env.*
+
+# AI/API configuration containing secrets
+config/ai_config.php
+
+# Database credentials
+config/db_config.php
+
+# Uploaded files
+uploads/reports/*
+uploads/patients/*
+uploads/doctors/*
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store

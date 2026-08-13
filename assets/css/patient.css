@@ -1,0 +1,273 @@
+/* ======================================================
+   PATIENT AREA — Shared styles + Dark Mode
+   ====================================================== */
+
+/* ---------- CSS Variables (Light & Dark) ---------- */
+:root {
+    --bg-body: #f6fbfa;
+    --bg-panel: #ffffff;
+    --panel-shadow: 0 6px 24px rgba(20, 76, 73, 0.05);
+    --panel-border: rgba(42, 157, 143, 0.06);
+    --text-primary: #0b3d3a;
+    --text-secondary: #5e7a77;
+    --text-muted: #6c8a86;
+    --stat-bg: #ffffff;
+    --stat-shadow: 0 6px 24px rgba(20, 76, 73, 0.06);
+    --stat-border-left: #2a9d8f;
+    --stat-number: #0b3d3a;
+    --stat-label: #5e7a77;
+    --table-header-bg: #f0f7f5;
+    --table-row-bg: #fcfdfd;
+    --table-row-hover: #f6fbfa;
+    --badge-success: #e0f2ef;
+    --badge-success-text: #1a6b64;
+    --badge-danger: #fde8e8;
+    --badge-danger-text: #a12b36;
+    --btn-clinic-bg: linear-gradient(135deg, #1a6b64, #2a9d8f);
+    --btn-clinic-shadow: 0 6px 18px rgba(42, 157, 143, 0.25);
+    --btn-clinic-hover: linear-gradient(135deg, #0f5a53, #21867a);
+    --toggle-bg: #2a9d8f;
+    --toggle-icon: #fff;
+    --alert-bg: #fde8e8;
+    --alert-color: #a12b36;
+    --alert-border: #dc3545;
+}
+
+body.dark-mode {
+    --bg-body: #121e1c;
+    --bg-panel: #1e2e2b;
+    --panel-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    --panel-border: rgba(42, 157, 143, 0.2);
+    --text-primary: #d4ece8;
+    --text-secondary: #a0c2bc;
+    --text-muted: #8aa9a3;
+    --stat-bg: #1e2e2b;
+    --stat-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    --stat-border-left: #4ecdc4;
+    --stat-number: #d4ece8;
+    --stat-label: #a0c2bc;
+    --table-header-bg: #1a2a27;
+    --table-row-bg: #1e2e2b;
+    --table-row-hover: #2a403c;
+    --badge-success: #1a3d38;
+    --badge-success-text: #8cd4cb;
+    --badge-danger: #3d1a1a;
+    --badge-danger-text: #e8a0a0;
+    --btn-clinic-bg: linear-gradient(135deg, #2a9d8f, #4ecdc4);
+    --btn-clinic-shadow: 0 6px 18px rgba(42, 157, 143, 0.4);
+    --btn-clinic-hover: linear-gradient(135deg, #1a6b64, #3ab0a0);
+    --toggle-bg: #f4a261;
+    --toggle-icon: #0b3d3a;
+    --alert-bg: #2a1a1a;
+    --alert-color: #e8a0a0;
+    --alert-border: #dc3545;
+}
+
+/* ---------- Global ---------- */
+body {
+    background: var(--bg-body);
+    color: var(--text-primary);
+    transition: background 0.4s, color 0.4s;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ---------- Dark Mode Toggle ---------- */
+.dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: var(--toggle-bg);
+    color: var(--toggle-icon);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.dark-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- Panels ---------- */
+.admin-panel {
+    background: var(--bg-panel);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--panel-shadow);
+    border: 1px solid var(--panel-border);
+    transition: background 0.4s, box-shadow 0.4s, border 0.4s;
+}
+
+/* ---------- Stat Cards ---------- */
+.stat-card {
+    background: var(--stat-bg);
+    border-radius: 16px;
+    padding: 20px 20px 16px;
+    box-shadow: var(--stat-shadow);
+    border-left: 6px solid var(--stat-border-left);
+    transition: background 0.4s, box-shadow 0.4s;
+    height: 100%;
+}
+.stat-card .stat-number {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--stat-number);
+    line-height: 1.2;
+    transition: color 0.4s;
+}
+.stat-card .stat-label {
+    font-size: 0.9rem;
+    color: var(--stat-label);
+    font-weight: 500;
+    margin-top: 2px;
+    transition: color 0.4s;
+}
+
+/* ---------- Tables ---------- */
+.admin-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+    font-size: 0.95rem;
+}
+.admin-table thead th {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 12px;
+    background: var(--table-header-bg);
+    border: none;
+    border-radius: 10px 10px 0 0;
+    transition: background 0.4s, color 0.4s;
+}
+.admin-table tbody td {
+    padding: 12px 12px;
+    background: var(--table-row-bg);
+    border: none;
+    vertical-align: middle;
+    transition: background 0.3s;
+}
+.admin-table tbody tr:hover td {
+    background: var(--table-row-hover);
+}
+.admin-table tbody tr td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+.admin-table tbody tr td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+/* ---------- Badges ---------- */
+.badge-success-soft {
+    background: var(--badge-success);
+    color: var(--badge-success-text);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: inline-block;
+    transition: background 0.4s, color 0.4s;
+}
+.badge-danger-soft {
+    background: var(--badge-danger);
+    color: var(--badge-danger-text);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: inline-block;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* ---------- Buttons ---------- */
+.btn-clinic {
+    background: var(--btn-clinic-bg);
+    border: none;
+    border-radius: 40px;
+    padding: 10px 28px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    transition: all 0.25s ease;
+    box-shadow: var(--btn-clinic-shadow);
+}
+.btn-clinic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(42, 157, 143, 0.35);
+    background: var(--btn-clinic-hover);
+    color: #fff;
+}
+.btn-outline-secondary {
+    border: 1.5px solid var(--border-color, #d0e0dd);
+    color: var(--text-secondary);
+    border-radius: 40px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: transparent;
+}
+.btn-outline-secondary:hover {
+    background: var(--bg-body);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+    border: none;
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+.alert-success {
+    background: var(--badge-success);
+    color: var(--badge-success-text);
+    border-left: 6px solid #2a9d8f;
+}
+.alert-danger {
+    background: var(--alert-bg);
+    color: var(--alert-color);
+    border-left: 6px solid var(--alert-border);
+}
+.alert-warning {
+    background: #fff4e5;
+    color: #b7791f;
+    border-left: 6px solid #f4a261;
+}
+body.dark-mode .alert-warning {
+    background: #2a241a;
+    color: #e8c88a;
+    border-left-color: #f4a261;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .dark-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        top: 12px;
+        right: 12px;
+    }
+    .stat-card .stat-number {
+        font-size: 1.8rem;
+    }
+    .admin-panel {
+        padding: 16px;
+    }
+    .admin-table thead th,
+    .admin-table tbody td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
