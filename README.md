@@ -1,1 +1,36 @@
-# doctor-booking-system
+## 📸 Project Screenshots
+
+### 🛠️ Admin 
+
+![Admin Dashboard](Screenshots(400).png)
+
+
+
+
+### 🏠 Home Page
+
+![Doctor Booking System Home Page](screenshots/home.png)
+
+### 📝 Patient Registration
+
+![Patient Registration](screenshots/patient-register.png)
+
+### 👨‍⚕️ Doctor List
+
+![Doctor List](screenshots/doctor-list.png)
+
+### 📅 Appointment Booking
+
+![Appointment Booking](screenshots/booking.png)
+
+### 👤 Patient Dashboard
+
+![Patient Dashboard](screenshots/patient-dashboard.png)
+
+### 👨‍⚕️ Doctor Dashboard
+
+![Doctor Dashboard](screenshots/doctor-dashboard.png)
+
+### 🛠️ Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
