@@ -2,7 +2,7 @@
 
 ### 🛠️ Admin 
 
-![Admin Dashboard](Screenshots(400).png)
+![Admin Dashboard](screenshots/Screenshots(400).png)
 
 
 
